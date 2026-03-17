@@ -6,10 +6,16 @@ defineProps({
 })
 
 const count = ref(0)
+
+const doingSomething = _ => {
+  console.log('im doing something')
+}
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
+
+  <button type="button" v-on:mouseover="() => { count++; doingSomething() }">Do something</button>
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
