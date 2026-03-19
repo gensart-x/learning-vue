@@ -1,6 +1,5 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import FormInput from './components/FormInput.vue'
 </script>
 
 <template>
@@ -12,9 +11,8 @@ import FormInput from './components/FormInput.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
-  <FormInput placeholder="Nama anda: " />
-  <FormInput placeholder="Umur anda: " />
+  <hr>
+  <HelloWorld/>
 </template>
 
 <style scoped>

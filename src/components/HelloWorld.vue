@@ -1,28 +1,27 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, reactive, computed } from 'vue'
+import { NButton, NInput } from 'naive-ui'
 
-const search = ref('')
-const users = ref(['Alice', 'Bob', 'Charlie'])
+const luckRate = computed(_ => {
+  user.name
 
-const filteredUsers = computed(() => {
-  return users.value.filter(user =>
-    user.toLowerCase().includes(search.value.toLowerCase())
-  )
+  return Math.random()
 })
+
+const count = ref(0)
+
+const user = reactive({
+  name: 'Genes',
+  age: 24
+})
+
 </script>
 
 <template>
-  <input v-model="search" placeholder="Search..." />
+  <h2>learning vue bcs my money never turned blue</h2>
+  <h3>my luck rate: {{ luckRate }}</h3>
+  <h3>I'm {{ user.name }} and I'm {{ user.age }} y.o.</h3>
+  <n-input v-model:value="user.name" type="text" placeholder="Here is your name" size="medium" clearable autofocus @change=""></n-input>
 
-  <ul>
-    <li v-for="user in filteredUsers" :key="user">
-      {{ user }}
-    </li>
-  </ul>
+  <n-button dashed type="info" v-on:click="count++">Count now is {{ count }}</n-button>
 </template>
-
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
