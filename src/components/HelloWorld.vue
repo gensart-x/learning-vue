@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 import { NButton, NInput } from 'naive-ui'
 
 const luckRate = computed(_ => {
@@ -13,6 +13,10 @@ const count = ref(0)
 const user = reactive({
   name: 'Genes',
   age: 24
+})
+
+watch(() => user.name, (oldName, newName) => {
+  console.log(`${oldName} changed to ${newName}`)
 })
 
 </script>
