@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed, watch } from 'vue'
+import { ref, reactive, computed, watch, watchEffect } from 'vue'
 import { NButton, NInput } from 'naive-ui'
 
 const luckRate = computed(_ => {
@@ -9,6 +9,13 @@ const luckRate = computed(_ => {
 })
 
 const count = ref(0)
+
+watchEffect(_ => {
+  console.log(count.value)
+  console.log('i will run')
+})
+
+count.value = 5
 
 const user = reactive({
   name: 'Genes',
