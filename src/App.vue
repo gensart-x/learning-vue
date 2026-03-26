@@ -1,5 +1,6 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import FormExample from './components/FormExample.vue'
 </script>
 
 <template>
@@ -13,6 +14,12 @@ import HelloWorld from './components/HelloWorld.vue'
   </div>
   <hr>
   <HelloWorld/>
+  <hr>
+  <n-config-provider>
+    <n-message-provider>
+      <FormExample/>
+    </n-message-provider>
+  </n-config-provider>
 </template>
 
 <style scoped>
