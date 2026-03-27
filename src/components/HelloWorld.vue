@@ -1,55 +1,44 @@
 <script setup>
-/**
- * COMPOSABLES APPROACH
- * --------------------
- * Composables in Vue 3 (Composition API) are functions that encapsulate 
- * and reuse stateful logic. By moving logic like counters, API fetchers, 
- * or event listeners outside of a component, we make our code cleaner,
- * more modular, and easier to test or share across multiple components.
- */
-
-// We import the specific composable file needed for this feature
-import useCounter from '../composables/useCounter'
-
-/**
- * WHAT'S HAPPENING HERE:
- * 1. We call our composable function `useCounter()`.
- * 2. It returns reactivity objects (refs, computed properties) and methods.
- * 3. We use object destructuring `{ count, doubled, tripled, increment }` 
- *    to extract exactly what we need for this component's template.
- * 4. Since these destructured properties are refs, Vue's reactivity system 
- *    automatically tracks them. When `count` changes, the template updates.
- */
-const { count, doubled, tripled, increment } = useCounter()
+defineProps({
+  msg: {
+    type: String,
+    required: true,
+  },
+})
 </script>
 
 <template>
-  <div>
-    <h2>Vue 3 Composables Example</h2>
-    
-    <!-- Using the reactive states provided by our composable -->
-    <h3>Total count: {{ count }}</h3>
-    <h3>Total doubled: {{ doubled }}</h3>
-    <h3>Total tripled: {{ tripled }}</h3>
-
-    <!-- Using the method provided by our composable to mutate state -->
-    <button @click="increment">Increment Count</button>
+  <div class="greetings">
+    <h1 class="green">{{ msg }}</h1>
+    <h3>
+      You’ve successfully created a project with
+      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+    </h3>
   </div>
 </template>
 
 <style scoped>
-button {
-  padding: 8px 16px;
-  background-color: #42b883;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 10px;
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  position: relative;
+  top: -10px;
 }
 
-button:hover {
-  background-color: #33a06f;
+h3 {
+  font-size: 1.2rem;
+}
+
+.greetings h1,
+.greetings h3 {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .greetings h1,
+  .greetings h3 {
+    text-align: left;
+  }
 }
 </style>
