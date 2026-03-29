@@ -1,11 +1,16 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import { ref } from 'vue'
-
-const name = ref('Yuno')
-
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <HelloWorld :name="name"/>
+  <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <br>
+    <RouterLink to="/about">About</RouterLink>
+    <br>
+    <RouterLink :to="{ name: 'user', params: { name: 'Genes' } }">my profile</RouterLink>
+    <br>
+    <RouterLink :to="{ name: 'user', params: { name: 'Yuno' } }">yuno profile</RouterLink>
+  </nav>
+  <RouterView />
 </template>

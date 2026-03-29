@@ -1,13 +1,8 @@
 <script setup>
-import { ref, defineProps } from 'vue'
-import { InputOtp } from 'primevue/inputotp';
+import { ref } from 'vue'
 import viteLogo from '../assets/vite.svg'
 import heroImg from '../assets/hero.png'
 import vueLogo from '../assets/vue.svg'
-
-defineProps({
-  name: String
-})
 
 const count = ref(0)
 </script>
@@ -20,9 +15,10 @@ const count = ref(0)
       <img :src="viteLogo" class="vite" alt="Vite logo" />
     </div>
     <div>
-      <InputOtp v-model.number="count" />
+      <h1>Get started</h1>
+      <p>Edit <code>src/App.vue</code> and save to test <code>HMR</code></p>
     </div>
-    <h5>OTP is {{ count }}</h5>
+    <button class="counter" @click="count++">Count is {{ count }}</button>
   </section>
 
   <div class="ticks"></div>
